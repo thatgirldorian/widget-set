@@ -1,5 +1,6 @@
 import React from "react";
 import Accordion from './Accordion'
+import SearchWidget from './SearchWidget'
 
 
 //create a couple of items to add to the accordion 
@@ -29,6 +30,7 @@ const App = () => {
         <div>
             <br />
             <Accordion items={items} />
+            <SearchWidget />
         </div>
     )
 }
