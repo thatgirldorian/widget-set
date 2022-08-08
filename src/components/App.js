@@ -29,7 +29,7 @@ const App = () => {
     return (
         <div>
             <br />
-            <Accordion items={items} />
+            {/* <Accordion items={items} /> */}
             <SearchWidget />
         </div>
     )
