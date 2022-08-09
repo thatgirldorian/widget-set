@@ -25,23 +25,41 @@ const SearchWidget = () => {
             setResults(data.query.search)
         }
 
-        searchWiki()
+        //add some conditional rendering incase there is no search term specified + some API throttling with a timer
+    const timeoutId = setTimeout(() => {
+            if (term) {
+                searchWiki()
+            }
+        }, 500)
+
+        //clear the timeout and cancel the timer
+        return () => {
+            clearTimeout(timeoutId)
+        }
+
     }, [term])
+
 
     //render the returned results from the search
     const renderedResults = results.map((result) => {
         return (
             <div key={result.pageid} className="item">
+                <div className="right floated content">
+                    <a className="ui button"
+                    href={`https://en.wikipedia.org?curid=${result.pageid}`}
+                        >Read</a>
+                </div>
                 <div className="content">
                     <div className="header">
                         {result.title}
                     </div>
-                        {result.snippet}
+                    <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
                 </div>
             </div>
         )
     })
 
+    //render the SearchWidget component
     return (
         <div>
             <div className="ui form">
