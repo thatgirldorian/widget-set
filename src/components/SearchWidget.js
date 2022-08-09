@@ -4,10 +4,24 @@ import axios from "axios";
 const SearchWidget = () => {
     //initialize state
     const [term, setTerm ] = useState('')
+    const [results, setResults] = useState([])
 
     //render when the component is run and the term has changed
     useEffect(()=> {
-        console.log('rendering search results...');
+        //use a helper function with async/await
+        const searchWiki = async () => {
+            await axios.get('https://en.wikipedia.org/w/api.php', { 
+                params: {
+                    action: 'query',
+                    list: 'search',
+                    origin: '*',
+                    format: 'json',
+                    srsearch: term
+                }
+            })
+        }
+
+        searchWiki()
     }, [term])
 
 
