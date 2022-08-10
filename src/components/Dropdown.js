@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 const Dropdown = ({ options, selected, onSelectedChange }) => {
     //add a piece of state to toggle the dropdown
     const [open, setOpen] = useState(false)
+
+    //add a manual event listener to close the dropdown if anywhere else is clicked
+    useEffect(() => {
+        document.body.addEventListener(
+            'click', 
+            () => {
+                setOpen(false)
+            },
+            { capture: true }
+            )
+    }, [])
 
     //map over the list we want to display 
     const renderedOptions = options.map((option) => {
