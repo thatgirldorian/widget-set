@@ -1,0 +1,12 @@
+.item {
+    padding: 20px 10px !important;
+}
+
+.button {
+    color: white !important;
+}
+
+a.ui.button {
+    background-color: #023e8a;
+    margin-top: 5px !important;
+}

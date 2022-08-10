@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Accordion from './Accordion'
 import SearchWidget from './SearchWidget'
+import Dropdown from './Dropdown'
+
 
 
 //create a couple of items to add to the accordion 
@@ -23,16 +25,38 @@ const items = [
     }
 ]
 
+//create options for the dropdown menu
+const options = [
+    {
+        label: "Finsta",
+        value: "red"
+    }, 
+    {
+        label: "Kreative",
+        value: "green"
+    },
+    {
+        label: "Pulpy",
+        value: "blue"
+    }
+]
 
 
-const App = () => {
+export default () => {
+    //initialize state 
+    const [selected, setSelected] = useState(options[0])
+
     return (
         <div>
             <br />
             {/* <Accordion items={items} /> */}
-            <SearchWidget />
+            {/* <SearchWidget /> */}
+            <Dropdown 
+            selected={selected}
+            onSelectedChange={setSelected}
+            options={options} 
+            />
         </div>
     )
 }
 
-export default App;

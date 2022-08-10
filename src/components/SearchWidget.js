@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import './searchWidget.css'
 
 const SearchWidget = () => {
     //initialize state
@@ -26,15 +27,19 @@ const SearchWidget = () => {
         }
 
         //add some conditional rendering incase there is no search term specified + some API throttling with a timer
-    const timeoutId = setTimeout(() => {
-            if (term) {
-                searchWiki()
+        if (term && !results.length) {
+            searchWiki()
+        } else {
+            const timeoutId = setTimeout(() => {
+                if (term) {
+                    searchWiki()
+                }
+            }, 1000)
+    
+            //clear the timeout and cancel the timer
+            return () => {
+                clearTimeout(timeoutId)
             }
-        }, 500)
-
-        //clear the timeout and cancel the timer
-        return () => {
-            clearTimeout(timeoutId)
         }
 
     }, [term])
