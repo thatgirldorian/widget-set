@@ -1,20 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 
-const Dropdown = ({ options, selected, onSelectedChange }) => {
+const Dropdown = ({ value, options, selected, onSelectedChange }) => {
     //add a piece of state to toggle the dropdown
     const [open, setOpen] = useState(false)
+    //add a reference 
+    const ref = useRef()
 
     //add a manual event listener to close the dropdown if anywhere else is clicked
     useEffect(() => {
-        document.body.addEventListener(
-            'click', 
-            () => {
+            const onBodyClick = (event) => {
+                if (ref.current.contains(event.target)) {
+                    return
+                }
                 setOpen(false)
-            },
-            { capture: true }
-            )
-    }, [])
+            }
+            document.body.addEventListener('click', onBodyClick, { capture: true})
+
+            return () => {
+                document.body.removeEventListener('click', onBodyClick, {
+                    capture: true,
+                })
+            }
+        }, [])
 
     //map over the list we want to display 
     const renderedOptions = options.map((option) => {
@@ -28,20 +36,23 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
             <div 
                 key={option.value} 
                 className="item"
-                onClick={() => onSelectedChange(option) }
+                onClick={() => onSelectedChange(option, value) }
                 >
                 {option.label}
             </div>
         )
     })
 
+    
     return (
-        <div className=" ui form">
+        <div ref={ref} className=" ui form">
             <div className="field">
                 <label className="label">Select a workspace</label>
-                <div onClick={() => setOpen(!open) } className={`ui selection dropdown ${open ? 'visible active' : '' } `}>
+                <div 
+                onClick={() => setOpen(!open) } className={`ui selection dropdown ${open ? 'visible active' : '' } `}
+                >
                     <i className="dropdown icon"></i>
-                    <div className="text">{selected.label}</div>
+                    <div className="text" style={{color: selected.value}}>{selected.label}</div>
                     <div className={`menu ${open ? 'visible transition' : ''}`}>{renderedOptions}</div>
                 </div>
             </div>

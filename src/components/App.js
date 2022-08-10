@@ -29,23 +29,19 @@ const items = [
 const options = [
     {
         label: "Finsta",
-        value: "red"
+        value: "#F65A83"
     }, 
     {
         label: "Kray",
-        value: "green"
+        value: "#59CE8F"
     },
     {
         label: "Roydy",
-        value: "blue"
+        value: "#3120E0"
     }, 
     {
         label: "Exco",
-        value: "yellow"
-    },
-    {
-        label: "Odby",
-        value: "purple"
+        value: "#A10035"
     }
 ]
 
@@ -63,7 +59,7 @@ export default () => {
             <Dropdown 
             selected={selected}
             onSelectedChange={setSelected}
-            options={options} 
+            options={options}coo
             />
         </div>
     )
