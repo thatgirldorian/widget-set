@@ -32,19 +32,28 @@ const options = [
         value: "red"
     }, 
     {
-        label: "Kreative",
+        label: "Kray",
         value: "green"
     },
     {
-        label: "Pulpy",
+        label: "Roydy",
         value: "blue"
+    }, 
+    {
+        label: "Exco",
+        value: "yellow"
+    },
+    {
+        label: "Odby",
+        value: "purple"
     }
 ]
 
 
 export default () => {
-    //initialize state 
+    //initialize state for option selection
     const [selected, setSelected] = useState(options[0])
+    
 
     return (
         <div>
