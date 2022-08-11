@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Accordion from './Accordion'
 import SearchWidget from './SearchWidget'
 import Dropdown from './Dropdown'
+import Translate from './Translate'
 
 
 
@@ -53,14 +54,7 @@ export default () => {
 
     return (
         <div>
-            <br />
-            {/* <Accordion items={items} /> */}
-            {/* <SearchWidget /> */}
-            <Dropdown 
-            selected={selected}
-            onSelectedChange={setSelected}
-            options={options}coo
-            />
+            <Translate />
         </div>
     )
 }
