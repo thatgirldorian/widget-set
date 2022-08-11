@@ -41,7 +41,7 @@ const Translate = () => {
                 onSelectedChange={setLanguage}
 
             />
-            {/* <Convert /> */}
+            <Convert />
         </div>
     )
 }
