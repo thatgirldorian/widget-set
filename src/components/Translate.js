@@ -9,13 +9,26 @@ const options = [
         value: 'af'
     }, 
     {
-        label: 'Arabic',
-        value: 'ar'
+        label: 'French',
+        value: 'fr'
     },
     {
-        label: 'Hindi',
-        value: 'hi'
+        label: 'Hausa',
+        value: 'ha'
+    },
+    {
+        label: 'Igbo',
+        value: 'ig'
+    },
+    {
+        label: 'Japanese',
+        value: 'ja'
+    },
+    {
+        label: 'Yoruba',
+        value: 'yo'
     }
+
 ]
 
 const Translate = () => {
@@ -39,9 +52,10 @@ const Translate = () => {
                 options={options}
                 selected={language}
                 onSelectedChange={setLanguage}
-
             />
-            <Convert />
+            <hr />
+            <h3 className="ui header">Translation</h3>
+            <Convert text={text} language={language} />
         </div>
     )
 }
