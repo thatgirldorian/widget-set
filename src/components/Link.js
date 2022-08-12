@@ -2,8 +2,14 @@
 import React from 'react'
 
 const Link = ({ className, href, children}) => {
-    //add a helper function to prevent a full-page reload
+
     const onClick = (event) => {
+        //handle command clicks
+        if (event.metaKey || event.ctrlKey) {
+            return
+        }
+
+         //prevent a full-page reload
         event.preventDefault()
         //change the URL to match the content on screen
         window.history.pushState({}, '', href)
