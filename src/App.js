@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Accordion from './Accordion'
-import SearchWidget from './SearchWidget'
-import Dropdown from './Dropdown'
-import Translate from './Translate'
-import Route from './Route'
+import Accordion from './components/Accordion'
+import SearchWidget from './components/SearchWidget'
+import Dropdown from './components/Dropdown'
+import Translate from './components/Translate'
+import Route from './components/Route'
+import Header from './components/Header'
 
 
 
@@ -55,6 +56,7 @@ export default () => {
 
     return (
         <div>
+            <Header />
             <Route path='/'>
                 <Accordion items={items} />
             </Route>
