@@ -56,9 +56,10 @@ const Translate = () => {
                 onSelectedChange={setLanguage}
             />
             <div className="output-block">
-                <hr />
                 <h3 className="ui header">Translation</h3>
-                <Convert text={text} language={language} />
+                <div className="ui card fluid text-box">
+                    <Convert text={text} language={language} />
+                </div>
             </div>
         </div>
     )

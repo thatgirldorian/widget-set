@@ -20,3 +20,14 @@ div.text-block {
     margin-bottom: 20px !important;
     margin-top: 20px !important;
 }
+
+.ui.header {
+    margin-top: 20px !important;
+}
+
+.text-box {
+    background-color: #f3f3f2 !important;
+    height: 100px;
+    padding-left: 20px !important;
+    box-shadow: none !important;
+}
