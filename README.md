@@ -1,3 +1,25 @@
+# widget-set
+
+This is a set of reusable components you can use in your own web development projects. There's an accordion, a dropdown, widget, a search bar + list and a translate widget. I built them with React JS, Semantic UI and the Google Translate API.
+
+<h3>Issues faced & resolution:</h3>
+
+I used cards (via Semantic UI) to make the display output box for the Translate component and I didn't know how to remove the border. I was finally able to do this by removing the box-shadow.
+
+<h3>Technology used:</h3>
+
+- React JS
+- The Semantic UI library
+- The Axios library
+- The Google Translate API
+
+
+<h3>Link to site:</h3>
+http://widget-set.vercel.app/
+
+<h3>Screenshare:</h3>
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
