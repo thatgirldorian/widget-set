@@ -7,6 +7,11 @@ const Link = ({ className, href, children}) => {
         event.preventDefault()
         //change the URL to match the content on screen
         window.history.pushState({}, '', href)
+        
+
+        //use a navigation event to communicate to the routes
+        const navEvent = new PopStateEvent('popstate')
+        window.dispatchEvent(navEvent)
     }
 
 
