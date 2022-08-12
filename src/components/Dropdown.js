@@ -49,7 +49,7 @@ const Dropdown = ({ label, options, selected, onSelectedChange }) => {
             <div className="field">
                 <label className="label">{label}</label>
                 <div 
-                onClick={() => setOpen(!open) } className={`ui selection dropdown ${open ? 'visible active' : '' } `}
+                onClick={() => setOpen(!open) } className={`ui fluid selection dropdown ${open ? 'visible active' : '' } `}
                 >
                     <i className="dropdown icon"></i>
                     <div className="text" style={{color: selected.value}}>{selected.label}</div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './searchWidget.css'
+import './style.css'
 
 const SearchWidget = () => {
     //initialize state

@@ -1,6 +1,8 @@
 import React, {useState} from "react"
 import Dropdown from './Dropdown'
 import Convert from "./Convert"
+import './style.css'
+
 
 //create language options for the translate component
 const options = [
@@ -39,7 +41,7 @@ const Translate = () => {
     //use the Translate & Convert components in our Translate UI
     return (
         <div>
-            <div className="ui form">
+            <div className="ui form text-block">
                 <div className="field">
                     <label>Enter text</label>
                     <input value={text} onChange={(event) => setText(event.target.value)} />
@@ -48,14 +50,16 @@ const Translate = () => {
 
             
             <Dropdown 
-                label="Select a language"
+                label="Select a language to translate"
                 options={options}
                 selected={language}
                 onSelectedChange={setLanguage}
             />
-            <hr />
-            <h3 className="ui header">Translation</h3>
-            <Convert text={text} language={language} />
+            <div className="output-block">
+                <hr />
+                <h3 className="ui header">Translation</h3>
+                <Convert text={text} language={language} />
+            </div>
         </div>
     )
 }
