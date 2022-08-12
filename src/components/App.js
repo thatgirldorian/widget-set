@@ -3,6 +3,7 @@ import Accordion from './Accordion'
 import SearchWidget from './SearchWidget'
 import Dropdown from './Dropdown'
 import Translate from './Translate'
+import Route from './Route'
 
 
 
@@ -47,48 +48,34 @@ const options = [
 ]
 
 
-//map out all the different routes for navigation
-const showAccordion = () => {
-    if (window.location.pathname === '/') {
-        return  <Accordion items={items} />
-    }
-}
-
-const showList = () => {
-    if (window.location.pathname === '/list') {
-        return <SearchWidget />
-    }
-}
-
-const showDropdown = () => {
-    if (window.location.pathname === '/dropdown') {
-        return <Dropdown
-            // label={label}
-            // options={options}
-            // selected={selected}
-            // onSelectedChange={onSelectedChange}
-        />
-    }
-}
-
-const showTranslate = () => {
-    if (window.location.pathname === '/translate') {
-        return <Translate />
-    }
-}
-
 
 export default () => {
     //initialize state for option selection
     const [selected, setSelected] = useState(options[0])
-    
 
     return (
         <div>
-            {showAccordion()}
-            {showList()}
-            {showDropdown()}
-            {showTranslate()}
+            <Route path='/'>
+                <Accordion items={items} />
+            </Route>
+
+            <Route path='/list'>
+                <SearchWidget />
+            </Route>
+
+            <Route path='/dropdown'>
+                <Dropdown
+                    label="Select a workspace"
+                    options={options}
+                    selected={selected}
+                    onSelectedChange={setSelected}
+                />
+            </Route>
+
+            <Route path='/translate'>
+                <Translate />
+            </Route>
+            
         </div>
     )
 }
