@@ -1,6 +1,6 @@
 # widget-set
 
-This is a set of reusable components you can use in your own web development projects. There's an accordion, a dropdown, widget, a search bar + list and a translate widget. I built them with React JS and Semantic UI.
+This is a set of reusable components you can use in your own web development projects. There's an accordion, a dropdown, widget, a search bar + list and a translation widget. I built them with React JS and Semantic UI.
 
 <h3>Issues faced & resolution:</h3>
 
@@ -19,7 +19,6 @@ I used cards (via Semantic UI) to make the display output box for the Translate 
 http://widget-set.vercel.app/
 
 <h3>Screenshare:</h3>
-
 
 https://user-images.githubusercontent.com/40691059/184409333-264dc16a-eb98-4a01-acee-f05bc3cb3c48.mov
 
